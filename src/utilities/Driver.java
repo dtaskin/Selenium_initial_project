@@ -19,14 +19,14 @@ public class Driver {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-            driver.get("https://comfyelite.com/");
-            WebElement contactButton = driver.findElement(By.xpath("//a[text()='Contact Us']"));
-            contactButton.click();
-            System.out.println(driver.getCurrentUrl().equals("https://comfyelite.com/contact-us") ? "Contact us page validation PASSED" : "Contact us page validation FAILED");
-
         }
         return driver;
+    }
+    public static void firstThree(){
+        driver.get("https://comfyelite.com/");
+        WebElement contactButton = driver.findElement(By.xpath("//a[text()='Contact Us']"));
+        contactButton.click();
+        System.out.println(driver.getCurrentUrl().equals("https://comfyelite.com/contact-us") ? "Contact us page validation PASSED" : "Contact us page validation FAILED");
     }
     public static void quitDriver(){
         if(driver != null){
