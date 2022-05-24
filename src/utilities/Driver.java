@@ -19,6 +19,11 @@ public class Driver {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            /*
+            WHY WE NEED IMPLICIT WAIT
+            - This applies to each line that locates web elements
+            -findElement() or findElements() if cannot find the element in 30 seconds -> NoSuchElementsException
+             */
         }
         return driver;
     }
@@ -27,6 +32,7 @@ public class Driver {
         WebElement contactButton = driver.findElement(By.xpath("//a[text()='Contact Us']"));
         contactButton.click();
         System.out.println(driver.getCurrentUrl().equals("https://comfyelite.com/contact-us") ? "Contact us page validation PASSED" : "Contact us page validation FAILED");
+        //YOU CAN ALSO VALIDATE THE TITLE ON CONTACT US PAGE (RECAP)
     }
     public static void quitDriver(){
         if(driver != null){
